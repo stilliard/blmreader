@@ -1,0 +1,17 @@
+{
+    "name": "stilliard/blmreader",
+    "description": "BLM file format reader (for use with rightmove files)",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Stilliard",
+            "email": "andrew.stilliard@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "classmap": ["src"]
+    },
+    "require": {
+    }
+}
