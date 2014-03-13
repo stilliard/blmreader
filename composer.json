@@ -10,7 +10,9 @@
         }
     ],
     "autoload": {
-        "classmap": ["src"]
+        "psr-4": {
+            "BLM\\": "src"
+        }
     },
     "require": {
     }
