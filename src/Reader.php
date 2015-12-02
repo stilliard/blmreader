@@ -4,7 +4,7 @@
  * BLM File Reader
  * For use with Rightmoves BLM files 
  * Built for the Version 3 Specification
- * @throws Exception
+ * @throws \Exception
  */
 class Reader
 {
@@ -25,7 +25,7 @@ class Reader
 
     /**
      * init
-     * @throws Exception
+     * @throws \Exception
      * @param $file string File path/location of the .BLM file
      */
     public function __construct($file)
@@ -35,7 +35,7 @@ class Reader
         $ext = end($fileNameParts);
         $ext = strtoupper($ext);
         if($file=='' || $ext!='BLM') {
-            throw new Exception("Given file is not a .BLM");
+            throw new \Exception("Given file is not a .BLM");
         }
 
         // read file 
@@ -55,14 +55,14 @@ class Reader
 
     /**
      * Get headers
-     * @throws Exception
+     * @throws \Exception
      * @return array
      */
     protected function getHeaders()
     {
         // Get header section, throw exception if not found
         if( ! preg_match('/#HEADER#(.*?)#/sm', $this->file, $match)) {
-            throw new Exception("No #HEADER# provided");
+            throw new \Exception("No #HEADER# provided");
         }
         $params = array();
         // get all lines from the header section
@@ -81,17 +81,17 @@ class Reader
 
     /**
      * Get definitions
-     * @throws Exception
+     * @throws \Exception
      * @return array
      */
     protected function getDefinitions()
     {
         if(empty($this->headers)) {
-            throw new Exception("Please set headers first.");
+            throw new \Exception("Please set headers first.");
         }
         // Get definitions section, throw exception if not found
         if( ! preg_match('/#DEFINITION#(.*?)\#/sm', $this->file, $match)) {
-            throw new Exception("No #DEFINITION# provided");
+            throw new \Exception("No #DEFINITION# provided");
         }
 
         // split line by the filed seperator (EndOfField)
@@ -108,17 +108,17 @@ class Reader
 
     /**
      * Get data
-     * @throws Exception
+     * @throws \Exception
      * @return array
      */
     protected function getData()
     {
         if(empty($this->definitions)) {
-            throw new Exception("Please set definitions first.");
+            throw new \Exception("Please set definitions first.");
         }
         // Get data section, throw exception if not found
         if( ! preg_match('/#DATA#(.*?)#END#/sm', $this->file, $match)) {
-            throw new Exception("No #DATA# provided (or no #END# defined)");
+            throw new \Exception("No #DATA# provided (or no #END# defined)");
         }
 
         // setup an array for the final output 
