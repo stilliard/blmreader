@@ -31,7 +31,10 @@ class Reader
     public function __construct($file)
     {
         // make sure a .BLM file has been given 
-        if($file=='' || strtoupper(end(explode('.',$file)))!='BLM') {
+        $fileNameParts = explode('.',$file);
+        $ext = end($fileNameParts);
+        $ext = strtoupper($ext);
+        if($file=='' || $ext!='BLM') {
             throw new Exception("Given file is not a .BLM");
         }
 
@@ -95,8 +98,10 @@ class Reader
         $fields = array_map('trim', explode($this->headers['EOF'], $match[1]));
 
         // remove line/row seperator (EndOfRow)
-        if(end($fields)==$this->headers['EOR']) {
-            unset( $fields[array_pop(array_keys($fields))] );
+        $fieldsEnd = end($fields);
+        if($fieldsEnd==$this->headers['EOR']) {
+            $fieldKeys = array_keys($fields);
+            unset( $fields[array_pop($fieldKeys)] );
         }
         return $fields;
     }
