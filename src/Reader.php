@@ -117,7 +117,7 @@ class Reader
             throw new \Exception("Please set definitions first.");
         }
         // Get data section, throw exception if not found
-        if( ! preg_match('/#DATA#(.*?)#END#/sm', $this->file, $match)) {
+        if( ! preg_match('/#DATA#(.*)#END#/sm', $this->file, $match)) {
             throw new \Exception("No #DATA# provided (or no #END# defined)");
         }
 
