@@ -16,3 +16,5 @@ $blm = new \BLM\Reader(dirname(__FILE__)  . '/test.blm')
 var_dump($blm->toArray());
 ```
 
+Development sponsored by [ecommerce.co.uk](https://www.ecommerce.co.uk/?utm_source=composer-blmreader&utm_medium=referral&utm_campaign=open-source)
+
