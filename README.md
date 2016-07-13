@@ -12,7 +12,7 @@ composer require stilliard/blmreader 1.0.0
 
 ## Example usage
 ```php
-$blm = new \BLM\Reader(dirname(__FILE__)  . '/test.blm')
+$blm = new \BLM\Reader(dirname(__FILE__)  . '/test.blm');
 var_dump($blm->toArray());
 ```
 
