@@ -40,6 +40,10 @@ class Reader
 
         // read file 
         $this->file = file_get_contents($file);
+		
+		// Fix encoding issue when non ascii charcters are there.
+		$this->file = mb_convert_encoding($this->file, 'UTF-8',
+          mb_detect_encoding($this->file, 'UTF-8, ISO-8859-1', true));
     }
 
     /**
