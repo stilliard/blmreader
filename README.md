@@ -7,7 +7,7 @@ This php composer package provides a simple way to read BLM files for use with r
 
 ## Install
 ```bash
-composer require stilliard/blmreader 1.0.0
+composer require stilliard/blmreader 1.0.1
 ```
 
 ## Example usage
